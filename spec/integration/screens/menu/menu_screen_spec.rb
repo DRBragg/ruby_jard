@@ -11,10 +11,13 @@ RSpec.describe 'Menu screen', integration: true do
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb",
         width: 120, height: 5
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -26,14 +29,17 @@ RSpec.describe 'Menu screen', integration: true do
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb",
         width: 50, height: 10
       )
-      test.start
-      test.assert_screen
-      test.send_keys('jard filter include rails', :Enter)
-      test.send_keys('jard filter exclude spec*', :Enter)
-      test.send_keys('jard filter exclude some_thing*', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('jard filter include rails', :Enter)
+        test.send_keys('jard filter exclude spec*', :Enter)
+        test.send_keys('jard filter exclude some_thing*', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -45,18 +51,21 @@ RSpec.describe 'Menu screen', integration: true do
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb",
         width: 120, height: 5
       )
-      test.start
-      test.assert_screen
-      test.send_keys('jard filter gems', :Enter)
-      test.assert_screen
-      test.send_keys('jard filter source_tree', :Enter)
-      test.assert_screen
-      test.send_keys('jard filter everything', :Enter)
-      test.assert_screen
-      test.send_keys('jard filter application', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('jard filter gems', :Enter)
+        test.assert_screen
+        test.send_keys('jard filter source_tree', :Enter)
+        test.assert_screen
+        test.send_keys('jard filter everything', :Enter)
+        test.assert_screen
+        test.send_keys('jard filter application', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -68,23 +77,26 @@ RSpec.describe 'Menu screen', integration: true do
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb",
         width: 120, height: 5
       )
-      test.start
-      test.assert_screen
-      test.send_keys('jard filter gems', :Enter)
-      test.send_keys('jard filter include rails', :Enter)
-      test.assert_screen
-      test.send_keys('jard filter exclude spec*', :Enter)
-      test.assert_screen
-      test.send_keys('jard filter include ~/library_a/abc.rb', :Enter)
-      test.assert_screen
-      test.send_keys('jard filter include test*', :Enter)
-      test.assert_screen
-      test.send_keys('jard filter exclude rails', :Enter)
-      test.assert_screen
-      test.send_keys('jard filter clear', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('jard filter gems', :Enter)
+        test.send_keys('jard filter include rails', :Enter)
+        test.assert_screen
+        test.send_keys('jard filter exclude spec*', :Enter)
+        test.assert_screen
+        test.send_keys('jard filter include ~/library_a/abc.rb', :Enter)
+        test.assert_screen
+        test.send_keys('jard filter include test*', :Enter)
+        test.assert_screen
+        test.send_keys('jard filter exclude rails', :Enter)
+        test.assert_screen
+        test.send_keys('jard filter clear', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

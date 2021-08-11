@@ -10,17 +10,20 @@ RSpec.describe 'Interruption test', integration: true do
         'idle.expected',
         "bundle exec ruby -e \"require 'ruby_jard'\njard\na = 1\""
       )
-      test.start
-      test.assert_screen
-      test.send_keys(:"C-c")
-      test.send_keys(:"C-c")
-      test.send_keys(:"C-c")
-      test.send_keys(:"C-c")
-      test.assert_screen
-      test.send_keys('23', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys(:"C-c")
+        test.send_keys(:"C-c")
+        test.send_keys(:"C-c")
+        test.send_keys(:"C-c")
+        test.assert_screen
+        test.send_keys('23', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -31,18 +34,21 @@ RSpec.describe 'Interruption test', integration: true do
         'pending.expected',
         "bundle exec ruby -e \"require 'ruby_jard'\njard\na = 1\""
       )
-      test.start
-      test.assert_screen
-      test.send_keys('a = 1')
-      test.send_keys(:"C-c")
-      test.send_keys(:"C-c")
-      test.send_keys(:"C-c")
-      test.send_keys(:"C-c")
-      test.assert_screen
-      test.send_keys('23', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('a = 1')
+        test.send_keys(:"C-c")
+        test.send_keys(:"C-c")
+        test.send_keys(:"C-c")
+        test.send_keys(:"C-c")
+        test.assert_screen
+        test.send_keys('23', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -53,19 +59,22 @@ RSpec.describe 'Interruption test', integration: true do
         'evaluation.expected',
         "bundle exec ruby -e \"require 'ruby_jard'\njard\na = 1\""
       )
-      test.start
-      test.assert_screen
-      test.send_keys('sleep 3', :Enter)
-      sleep 1
-      test.send_keys(:"C-c")
-      test.send_keys(:"C-c")
-      test.send_keys(:"C-c")
-      test.send_keys(:"C-c")
-      test.assert_screen
-      test.send_keys('23', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('sleep 3', :Enter)
+        sleep 1
+        test.send_keys(:"C-c")
+        test.send_keys(:"C-c")
+        test.send_keys(:"C-c")
+        test.send_keys(:"C-c")
+        test.assert_screen
+        test.send_keys('23', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

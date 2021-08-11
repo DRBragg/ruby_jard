@@ -9,10 +9,13 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_1.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/placement_1_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -22,10 +25,13 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_2.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/placement_2_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -35,10 +41,13 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_3.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/placement_3_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -48,12 +57,15 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_4.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/placement_4_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('next', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('next', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -63,12 +75,15 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_5.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/placement_5_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('step', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('step', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -78,10 +93,13 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_6.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/placement_6_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -91,10 +109,13 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_7.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/placement_7_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -104,10 +125,13 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_8.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/placement_8_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -117,14 +141,17 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_9.expected',
         'bundle exec irb'
       )
-      test.start
-      test.assert_screen
-      test.send_keys('require_relative "../../examples/top_level_2_example.rb"', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('require_relative "../../examples/top_level_2_example.rb"', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -134,13 +161,16 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_10.expected',
         'bundle exec irb'
       )
-      test.start
-      test.assert_screen
-      test.send_keys('require_relative "../../examples/top_level_example.rb"', :Enter)
-      test.send_keys('system("clear")', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('require_relative "../../examples/top_level_example.rb"', :Enter)
+        test.send_keys('system("clear")', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -150,12 +180,15 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_11.expected',
         'bundle exec irb'
       )
-      test.start
-      test.assert_screen
-      test.send_keys('require_relative "../../examples/instance_method_example.rb"', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('require_relative "../../examples/instance_method_example.rb"', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -165,18 +198,21 @@ RSpec.describe 'Test different placement positions', integration: true do
         self, work_dir, 'placement_12.expected',
         'bundle exec irb'
       )
-      test.start
-      test.assert_screen
-      test.send_keys('require "ruby_jard"', :Enter)
-      test.send_keys('def method_a', :Enter)
-      test.send_keys('  jard', :Enter)
-      test.send_keys('end', :Enter)
-      test.send_keys('method_a', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('require "ruby_jard"', :Enter)
+        test.send_keys('def method_a', :Enter)
+        test.send_keys('  jard', :Enter)
+        test.send_keys('end', :Enter)
+        test.send_keys('method_a', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

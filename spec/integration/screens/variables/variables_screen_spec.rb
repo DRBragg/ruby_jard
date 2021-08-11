@@ -10,14 +10,17 @@ RSpec.describe 'Variable screen', integration: true do
         'top_level.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -28,14 +31,17 @@ RSpec.describe 'Variable screen', integration: true do
         'instance_method.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/instance_method_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -46,10 +52,13 @@ RSpec.describe 'Variable screen', integration: true do
         'class_method.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/class_method_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -60,10 +69,13 @@ RSpec.describe 'Variable screen', integration: true do
         'nested_loop.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/nested_loop_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -74,16 +86,19 @@ RSpec.describe 'Variable screen', integration: true do
         'jump.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/instance_method_2_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('next', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('next', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -94,16 +109,19 @@ RSpec.describe 'Variable screen', integration: true do
         'code_evaluation.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/evaluation_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('jard filter everything', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('step-out', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('jard filter everything', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('step-out', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -114,12 +132,15 @@ RSpec.describe 'Variable screen', integration: true do
         'end_of_method.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/end_of_method_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -133,12 +154,15 @@ RSpec.describe 'Variable screen', integration: true do
         'ruby_e.expected',
         code
       )
-      test.start
-      test.assert_screen
-      test.send_keys('next', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('next', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -149,10 +173,13 @@ RSpec.describe 'Variable screen', integration: true do
         'erb_file.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/erb_evaluation.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -163,14 +190,17 @@ RSpec.describe 'Variable screen', integration: true do
         'complicated_constant.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/complicated_constant_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -181,20 +211,23 @@ RSpec.describe 'Variable screen', integration: true do
         'complicated_instance.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/complicated_instance_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -205,15 +238,18 @@ RSpec.describe 'Variable screen', integration: true do
         'basic_object.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/basic_object_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('step', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('step', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -224,12 +260,15 @@ RSpec.describe 'Variable screen', integration: true do
         'circular_reference.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/circular_reference_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

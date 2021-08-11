@@ -14,20 +14,23 @@ RSpec.describe 'Test standard_streams', integration: true do
         "bundle exec ruby #{RSPEC_ROOT}/examples/cli.rb",
         width: 121, height: 40
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.send_keys('Quang-Minh', :Enter)
-      test.send_keys('17', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('jard output', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.send_keys('Quang-Minh', :Enter)
+        test.send_keys('17', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('jard output', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -38,20 +41,22 @@ RSpec.describe 'Test standard_streams', integration: true do
         width: 121, height: 40
       )
 
-      test.start
-      test.send_keys("echo \"Not Minh\n19\n\" | bundle exec ruby #{RSPEC_ROOT}/examples/cli.rb", :Enter)
-      sleep 1
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('jard output', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+      begin
+        test.start
+        test.send_keys("echo \"Not Minh\n19\n\" | bundle exec ruby #{RSPEC_ROOT}/examples/cli.rb", :Enter)
+        sleep 1
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('jard output', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -62,22 +67,24 @@ RSpec.describe 'Test standard_streams', integration: true do
         width: 121, height: 40
       )
 
-      test.start
-      test.send_keys("bundle exec ruby #{RSPEC_ROOT}/examples/cli.rb | tail -f /dev/null", :Enter)
-      sleep 1
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.send_keys('Quang-Minh', :Enter)
-      test.send_keys('17', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('jard output', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+      begin
+        test.start
+        test.send_keys("bundle exec ruby #{RSPEC_ROOT}/examples/cli.rb | tail -f /dev/null", :Enter)
+        sleep 1
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.send_keys('Quang-Minh', :Enter)
+        test.send_keys('17', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('jard output', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -88,23 +95,25 @@ RSpec.describe 'Test standard_streams', integration: true do
         width: 121, height: 40
       )
 
-      test.start
-      test.send_keys(
-        "echo \"Not Minh\n19\n\" | bundle exec ruby #{RSPEC_ROOT}/examples/cli.rb | tail -f /dev/null",
-        :Enter
-      )
-      sleep 1
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('jard output', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+      begin
+        test.start
+        test.send_keys(
+          "echo \"Not Minh\n19\n\" | bundle exec ruby #{RSPEC_ROOT}/examples/cli.rb | tail -f /dev/null",
+          :Enter
+        )
+        sleep 1
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('jard output', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -115,22 +124,24 @@ RSpec.describe 'Test standard_streams', integration: true do
         width: 121, height: 40
       )
 
-      test.start
-      test.send_keys("bundle exec ruby #{RSPEC_ROOT}/examples/cli.rb > /dev/null", :Enter)
-      sleep 1
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.send_keys('Quang-Minh', :Enter)
-      test.send_keys('17', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('jard output', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+      begin
+        test.start
+        test.send_keys("bundle exec ruby #{RSPEC_ROOT}/examples/cli.rb > /dev/null", :Enter)
+        sleep 1
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.send_keys('Quang-Minh', :Enter)
+        test.send_keys('17', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('jard output', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -142,10 +153,13 @@ RSpec.describe 'Test standard_streams', integration: true do
           "bundle exec ruby #{RSPEC_ROOT}/examples/detach_example.rb",
           width: 121, height: 40
         )
-        test.start
-        test.assert_screen
-      ensure
-        test.stop
+
+        begin
+          test.start
+          test.assert_screen
+        ensure
+          test.stop
+        end
       end
     end
   end
