@@ -10,12 +10,15 @@ RSpec.describe 'Output Integration tests', integration: true do
         'show_output.no_output.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/program_output_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('jard output', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('jard output', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -26,13 +29,16 @@ RSpec.describe 'Output Integration tests', integration: true do
         'show_output.fit.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/program_output_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('next', :Enter)
-      test.send_keys('jard output', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('next', :Enter)
+        test.send_keys('jard output', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -43,26 +49,29 @@ RSpec.describe 'Output Integration tests', integration: true do
         'show_output.overflow.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/program_output_example.rb"
       )
-      test.start
-      test.assert_screen
 
-      test.send_keys('next', :Enter)
-      test.send_keys('next', :Enter)
-      test.send_keys('jard output', :Enter)
-      test.assert_screen
+      begin
+        test.start
+        test.assert_screen
 
-      test.send_keys('k')
-      test.assert_screen
+        test.send_keys('next', :Enter)
+        test.send_keys('next', :Enter)
+        test.send_keys('jard output', :Enter)
+        test.assert_screen
 
-      test.send_keys('g')
-      sleep 1
-      test.assert_screen
+        test.send_keys('k')
+        test.assert_screen
 
-      test.send_keys('q')
-      sleep 1
-      test.assert_screen
-    ensure
-      test.stop
+        test.send_keys('g')
+        sleep 1
+        test.assert_screen
+
+        test.send_keys('q')
+        sleep 1
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

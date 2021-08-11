@@ -10,10 +10,13 @@ RSpec.describe 'Threads screen', integration: true do
         'top_level.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -24,10 +27,13 @@ RSpec.describe 'Threads screen', integration: true do
         'threads_untitled.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/threads_untitled.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -38,19 +44,22 @@ RSpec.describe 'Threads screen', integration: true do
         'threads_title.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/threads_title.rb"
       )
-      test.start
-      sleep 0.5
-      test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      sleep 0.5
-      test.assert_screen
+      begin
+        test.start
+        sleep 0.5
+        test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      sleep 0.5
-      test.assert_screen
-    ensure
-      test.stop
+        test.send_keys('continue', :Enter)
+        sleep 0.5
+        test.assert_screen
+
+        test.send_keys('continue', :Enter)
+        sleep 0.5
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -61,14 +70,17 @@ RSpec.describe 'Threads screen', integration: true do
         'threads_dead.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/threads_dead.rb"
       )
-      test.start
-      test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      sleep 0.5
-      test.assert_screen
-    ensure
-      test.stop
+      begin
+        test.start
+        test.assert_screen
+
+        test.send_keys('continue', :Enter)
+        sleep 0.5
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -79,14 +91,17 @@ RSpec.describe 'Threads screen', integration: true do
         'threads_spawn.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/threads_spawn.rb"
       )
-      test.start
-      test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      sleep 0.5
-      test.assert_screen
-    ensure
-      test.stop
+      begin
+        test.start
+        test.assert_screen
+
+        test.send_keys('continue', :Enter)
+        sleep 0.5
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

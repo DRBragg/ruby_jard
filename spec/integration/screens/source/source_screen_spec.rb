@@ -9,16 +9,19 @@ RSpec.describe 'Source screen', integration: true do
         self, work_dir, 'top_level_example.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('next', :Enter)
-      test.assert_screen
-      test.send_keys('next', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('next', :Enter)
+        test.assert_screen
+        test.send_keys('next', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -29,16 +32,19 @@ RSpec.describe 'Source screen', integration: true do
         'instance_method.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/instance_method_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -49,10 +55,13 @@ RSpec.describe 'Source screen', integration: true do
         'nested_method.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/nested_loop_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -63,10 +72,13 @@ RSpec.describe 'Source screen', integration: true do
         'end_of_file.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/start_of_file_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -77,16 +89,19 @@ RSpec.describe 'Source screen', integration: true do
         'code_evaluation.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/evaluation_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('jard filter everything', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('step-out', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('jard filter everything', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('step-out', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -97,12 +112,15 @@ RSpec.describe 'Source screen', integration: true do
         'end_of_method.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/end_of_method_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -113,10 +131,13 @@ RSpec.describe 'Source screen', integration: true do
         'ruby_e.expected',
         "bundle exec ruby -e \"require 'ruby_jard'\njard\na = 100 + 300\""
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -127,10 +148,13 @@ RSpec.describe 'Source screen', integration: true do
         'erb_file.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/erb_evaluation.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

@@ -10,18 +10,21 @@ RSpec.describe 'Default key bindings', integration: true do
         'filter_key_bindings.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys(:F2)
-      test.assert_screen
-      test.send_keys(:F2)
-      test.assert_screen
-      test.send_keys(:F2)
-      test.assert_screen
-      test.send_keys(:F2)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys(:F2)
+        test.assert_screen
+        test.send_keys(:F2)
+        test.assert_screen
+        test.send_keys(:F2)
+        test.assert_screen
+        test.send_keys(:F2)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -32,18 +35,21 @@ RSpec.describe 'Default key bindings', integration: true do
         'next_step_key_bindings.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_2_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys(:F8)
-      test.assert_screen
-      test.send_keys(:F8)
-      test.assert_screen
-      test.send_keys(:F7)
-      test.assert_screen
-      test.send_keys(:F7)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys(:F8)
+        test.assert_screen
+        test.send_keys(:F8)
+        test.assert_screen
+        test.send_keys(:F7)
+        test.assert_screen
+        test.send_keys(:F7)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -54,18 +60,21 @@ RSpec.describe 'Default key bindings', integration: true do
         'step_step_out_key_bindings.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_2_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys(:F7)
-      test.assert_screen
-      test.send_keys(:F7)
-      test.assert_screen
-      test.send_keys(:"S-F7")
-      test.assert_screen
-      test.send_keys(:F7)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys(:F7)
+        test.assert_screen
+        test.send_keys(:F7)
+        test.assert_screen
+        test.send_keys(:"S-F7")
+        test.assert_screen
+        test.send_keys(:F7)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -76,22 +85,25 @@ RSpec.describe 'Default key bindings', integration: true do
         'up_down_key_bindings.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/nested_loop_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys(:F7)
-      test.assert_screen
-      test.send_keys(:F6)
-      test.assert_screen
-      test.send_keys(:F6)
-      test.assert_screen
-      test.send_keys(:"S-F6")
-      test.assert_screen
-      test.send_keys(:"S-F6")
-      test.assert_screen
-      test.send_keys(:F8)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys(:F7)
+        test.assert_screen
+        test.send_keys(:F6)
+        test.assert_screen
+        test.send_keys(:F6)
+        test.assert_screen
+        test.send_keys(:"S-F6")
+        test.assert_screen
+        test.send_keys(:"S-F6")
+        test.assert_screen
+        test.send_keys(:F8)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -103,12 +115,15 @@ RSpec.describe 'Default key bindings', integration: true do
           'continue_key_bindings.expected',
           "bundle exec ruby #{RSPEC_ROOT}/examples/instance_method_2_example.rb"
         )
-        test.start
-        test.assert_screen
-        test.send_keys(:F9)
-        test.assert_screen
-      ensure
-        test.stop
+
+        begin
+          test.start
+          test.assert_screen
+          test.send_keys(:F9)
+          test.assert_screen
+        ensure
+          test.stop
+        end
       end
     end
 
@@ -119,12 +134,15 @@ RSpec.describe 'Default key bindings', integration: true do
           'continue_key_bindings_2.expected',
           "bundle exec ruby #{RSPEC_ROOT}/examples/instance_method_2_example.rb"
         )
-        test.start
-        test.assert_screen
-        test.send_keys(:"C-d")
-        test.assert_screen
-      ensure
-        test.stop
+
+        begin
+          test.start
+          test.assert_screen
+          test.send_keys(:"C-d")
+          test.assert_screen
+        ensure
+          test.stop
+        end
       end
     end
   end
@@ -136,16 +154,19 @@ RSpec.describe 'Default key bindings', integration: true do
         'list_key_bindings.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys(:F5)
-      test.assert_screen
-      test.send_keys(:F5)
-      test.assert_screen
-      test.send_keys(:F5)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys(:F5)
+        test.assert_screen
+        test.send_keys(:F5)
+        test.assert_screen
+        test.send_keys(:F5)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

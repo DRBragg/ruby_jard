@@ -11,10 +11,13 @@ RSpec.describe 'Auto layout', integration: true do
         "bundle exec ruby -e \"require 'ruby_jard'\njard\na = 1\"",
         width: 121, height: 30
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -26,10 +29,13 @@ RSpec.describe 'Auto layout', integration: true do
         "bundle exec ruby -e \"require 'ruby_jard'\njard\na = 1\"",
         width: 30, height: 30
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -41,10 +47,13 @@ RSpec.describe 'Auto layout', integration: true do
         "bundle exec ruby -e \"require 'ruby_jard'\njard\na = 1\"",
         width: 130, height: 15
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -56,10 +65,13 @@ RSpec.describe 'Auto layout', integration: true do
         "bundle exec ruby -e \"require 'ruby_jard'\njard\na = 1\"",
         width: 50, height: 50
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -70,22 +82,25 @@ RSpec.describe 'Auto layout', integration: true do
         'resize.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.resize(50, 60)
-      test.assert_screen
-      test.resize(50, 40)
-      test.assert_screen
-      test.resize(121, 30)
-      test.assert_screen
-      test.resize(121, 20)
-      test.assert_screen
-      test.resize(100, 50)
-      test.assert_screen
-      test.resize(140, 70)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.resize(50, 60)
+        test.assert_screen
+        test.resize(50, 40)
+        test.assert_screen
+        test.resize(121, 30)
+        test.assert_screen
+        test.resize(121, 20)
+        test.assert_screen
+        test.resize(100, 50)
+        test.assert_screen
+        test.resize(140, 70)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -96,15 +111,18 @@ RSpec.describe 'Auto layout', integration: true do
         'resize_evaluation.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('3.times { sleep 1 }', :Enter)
-      sleep 1
-      test.resize(50, 60)
-      sleep 3
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('3.times { sleep 1 }', :Enter)
+        sleep 1
+        test.resize(50, 60)
+        sleep 3
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -115,17 +133,20 @@ RSpec.describe 'Auto layout', integration: true do
         'resize_multiple.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('3.times { sleep 1 }', :Enter)
-      sleep 1
-      test.resize(50, 60)
-      test.resize(50, 62)
-      test.resize(50, 63)
-      sleep 3
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('3.times { sleep 1 }', :Enter)
+        sleep 1
+        test.resize(50, 60)
+        test.resize(50, 62)
+        test.resize(50, 63)
+        sleep 3
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -136,19 +157,22 @@ RSpec.describe 'Auto layout', integration: true do
         'resize_output.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      # rubocop:disable Lint/InterpolationCheck
-      test.send_keys('puts "Input before"; 3.times { |i| sleep 1; puts "Input #{i}" }', :Enter)
-      # rubocop:enable Lint/InterpolationCheck
-      sleep 0.5
-      test.resize(50, 60)
-      test.resize(50, 62)
-      test.resize(50, 63)
-      sleep 4
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        # rubocop:disable Lint/InterpolationCheck
+        test.send_keys('puts "Input before"; 3.times { |i| sleep 1; puts "Input #{i}" }', :Enter)
+        # rubocop:enable Lint/InterpolationCheck
+        sleep 0.5
+        test.resize(50, 60)
+        test.resize(50, 62)
+        test.resize(50, 63)
+        sleep 4
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -159,17 +183,20 @@ RSpec.describe 'Auto layout', integration: true do
         'resize_pending_input.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('a = 1 +')
-      test.resize(50, 60)
-      test.resize(50, 63)
-      sleep 0.5
-      test.assert_screen
-      test.send_keys(' 2', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('a = 1 +')
+        test.resize(50, 60)
+        test.resize(50, 63)
+        sleep 0.5
+        test.assert_screen
+        test.send_keys(' 2', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

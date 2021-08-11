@@ -10,18 +10,21 @@ RSpec.describe 'Backtrace screen', integration: true do
         'top_level.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_2_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('next', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('next', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('step', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('next', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('next', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('step', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -32,16 +35,19 @@ RSpec.describe 'Backtrace screen', integration: true do
         'instance_method.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/instance_method_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -52,10 +58,13 @@ RSpec.describe 'Backtrace screen', integration: true do
         'class_method.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/class_method_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -66,10 +75,13 @@ RSpec.describe 'Backtrace screen', integration: true do
         'nested_method.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/nested_loop_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -80,10 +92,13 @@ RSpec.describe 'Backtrace screen', integration: true do
         'end_of_file.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/start_of_file_example.rb"
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -94,16 +109,19 @@ RSpec.describe 'Backtrace screen', integration: true do
         'code_evaluation.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/evaluation_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('jard filter everything', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('step-out', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('jard filter everything', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('step-out', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -114,12 +132,15 @@ RSpec.describe 'Backtrace screen', integration: true do
         'end_of_method.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/end_of_method_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -138,10 +159,13 @@ RSpec.describe 'Backtrace screen', integration: true do
         'ruby_e.expected',
         "bundle exec ruby -e \"require 'ruby_jard'\njard\na = 100 + 300\""
       )
-      test.start
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -152,15 +176,18 @@ RSpec.describe 'Backtrace screen', integration: true do
         'basic_object.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/basic_object_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('step', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('step', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -171,67 +198,70 @@ RSpec.describe 'Backtrace screen', integration: true do
         'explore_filter_on_off.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/sort_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('up', :Enter)
-      test.assert_screen
-      test.send_keys('up', :Enter)
-      test.assert_screen
-      test.send_keys('down 2', :Enter)
-      test.assert_screen
 
-      test.send_keys('jard filter gems', :Enter)
-      test.assert_screen
-      test.send_keys('up', :Enter)
-      test.send_keys('up', :Enter)
-      test.send_keys('up', :Enter)
-      test.send_keys('up', :Enter)
-      test.assert_screen
-      test.send_keys('up 4', :Enter)
-      test.assert_screen
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('up', :Enter)
+        test.assert_screen
+        test.send_keys('up', :Enter)
+        test.assert_screen
+        test.send_keys('down 2', :Enter)
+        test.assert_screen
 
-      test.send_keys('frame 2', :Enter)
-      test.assert_screen
-      test.send_keys('frame 7', :Enter)
-      test.assert_screen
+        test.send_keys('jard filter gems', :Enter)
+        test.assert_screen
+        test.send_keys('up', :Enter)
+        test.send_keys('up', :Enter)
+        test.send_keys('up', :Enter)
+        test.send_keys('up', :Enter)
+        test.assert_screen
+        test.send_keys('up 4', :Enter)
+        test.assert_screen
 
-      test.send_keys('jard filter application', :Enter)
-      test.assert_screen
-      test.send_keys('frame 2', :Enter)
-      test.assert_screen
-      test.send_keys('down', :Enter)
-      test.assert_screen
-      test.send_keys('jard filter gems', :Enter)
-      test.send_keys('frame 2', :Enter)
-      test.send_keys('jard filter application', :Enter)
-      test.assert_screen
-      test.send_keys('up', :Enter)
-      test.assert_screen
+        test.send_keys('frame 2', :Enter)
+        test.assert_screen
+        test.send_keys('frame 7', :Enter)
+        test.assert_screen
 
-      test.send_keys('continue', :Enter)
+        test.send_keys('jard filter application', :Enter)
+        test.assert_screen
+        test.send_keys('frame 2', :Enter)
+        test.assert_screen
+        test.send_keys('down', :Enter)
+        test.assert_screen
+        test.send_keys('jard filter gems', :Enter)
+        test.send_keys('frame 2', :Enter)
+        test.send_keys('jard filter application', :Enter)
+        test.assert_screen
+        test.send_keys('up', :Enter)
+        test.assert_screen
 
-      test.send_keys('step', :Enter)
-      test.send_keys('step', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('jard filter everything', :Enter)
-      test.send_keys('step', :Enter)
-      test.assert_screen
-      test.send_keys('frame 10', :Enter)
-      test.assert_screen
-      test.send_keys('frame 7', :Enter)
-      test.assert_screen
-      test.send_keys('up', :Enter)
-      test.assert_screen
-      test.send_keys('down', :Enter)
-      test.assert_screen
+        test.send_keys('continue', :Enter)
 
-      test.send_keys('jard filter application', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+        test.send_keys('step', :Enter)
+        test.send_keys('step', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('jard filter everything', :Enter)
+        test.send_keys('step', :Enter)
+        test.assert_screen
+        test.send_keys('frame 10', :Enter)
+        test.assert_screen
+        test.send_keys('frame 7', :Enter)
+        test.assert_screen
+        test.send_keys('up', :Enter)
+        test.assert_screen
+        test.send_keys('down', :Enter)
+        test.assert_screen
+
+        test.send_keys('jard filter application', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

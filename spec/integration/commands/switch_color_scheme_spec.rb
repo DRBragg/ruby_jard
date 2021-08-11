@@ -10,12 +10,15 @@ RSpec.describe 'color-scheme command', integration: true do
         'scheme.list.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('jard color-scheme -l', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('jard color-scheme -l', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -26,12 +29,15 @@ RSpec.describe 'color-scheme command', integration: true do
         'scheme.switch.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('jard color-scheme 256', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('jard color-scheme 256', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -42,12 +48,15 @@ RSpec.describe 'color-scheme command', integration: true do
         'scheme.switch_not_found.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/top_level_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('jard color-scheme NotExistedScheme', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('jard color-scheme NotExistedScheme', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

@@ -10,55 +10,58 @@ RSpec.describe 'Scenario 1: Debug a simple sorting algorithm' do
       "bundle exec ruby #{RSPEC_ROOT}/integration/scenario_1/main_example.rb",
       width: 125, height: 30
     )
-    test.start
-    test.assert_screen
-    test.send_keys('step', :Enter)
-    test.assert_screen
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.assert_screen
-    test.send_keys('continue', :Enter)
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.assert_screen
-    test.send_keys('node.val', :Enter)
-    test.assert_screen
-    test.send_keys('next', :Enter)
-    test.send_keys('final_head', :Enter)
-    test.send_keys('final_tail', :Enter)
-    test.assert_screen
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.assert_screen
-    test.send_keys('continue', :Enter)
-    test.send_keys('final_tail', :Enter)
-    test.assert_screen
-    test.send_keys('step', :Enter)
-    test.assert_screen
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.send_keys('next', :Enter)
-    test.send_keys('step', :Enter)
-    test.assert_screen
-    test.send_keys('up', :Enter)
-    test.send_keys('up', :Enter)
-    test.assert_screen
-    test.send_keys('down', :Enter)
-    sleep 1
-    test.assert_screen
-    test.send_keys('step-out', :Enter)
-    sleep 1
-    test.assert_screen
-    test.send_keys('next', :Enter)
-    test.send_keys('exit', :Enter)
-  ensure
-    test.stop
+
+    begin
+      test.start
+      test.assert_screen
+      test.send_keys('step', :Enter)
+      test.assert_screen
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.assert_screen
+      test.send_keys('continue', :Enter)
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.assert_screen
+      test.send_keys('node.val', :Enter)
+      test.assert_screen
+      test.send_keys('next', :Enter)
+      test.send_keys('final_head', :Enter)
+      test.send_keys('final_tail', :Enter)
+      test.assert_screen
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.assert_screen
+      test.send_keys('continue', :Enter)
+      test.send_keys('final_tail', :Enter)
+      test.assert_screen
+      test.send_keys('step', :Enter)
+      test.assert_screen
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.send_keys('next', :Enter)
+      test.send_keys('step', :Enter)
+      test.assert_screen
+      test.send_keys('up', :Enter)
+      test.send_keys('up', :Enter)
+      test.assert_screen
+      test.send_keys('down', :Enter)
+      sleep 1
+      test.assert_screen
+      test.send_keys('step-out', :Enter)
+      sleep 1
+      test.assert_screen
+      test.send_keys('next', :Enter)
+      test.send_keys('exit', :Enter)
+    ensure
+      test.stop
+    end
   end
 end

@@ -11,13 +11,16 @@ RSpec.describe 'Byebug compatibility', integration: true do
         "bundle exec ruby #{RSPEC_ROOT}/examples/byebug_example.rb",
         width: 130, height: 30
       )
-      test.start
-      test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+      begin
+        test.start
+        test.assert_screen
+
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -29,13 +32,16 @@ RSpec.describe 'Byebug compatibility', integration: true do
         "bundle exec ruby #{RSPEC_ROOT}/examples/debugger_example.rb",
         width: 130, height: 30
       )
-      test.start
-      test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+      begin
+        test.start
+        test.assert_screen
+
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -47,13 +53,16 @@ RSpec.describe 'Byebug compatibility', integration: true do
         "bundle exec ruby #{RSPEC_ROOT}/examples/binding_pry_example.rb",
         width: 130, height: 30
       )
-      test.start
-      test.assert_screen
 
-      test.send_keys('exit', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+      begin
+        test.start
+        test.assert_screen
+
+        test.send_keys('exit', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -65,19 +74,22 @@ RSpec.describe 'Byebug compatibility', integration: true do
         "bundle exec ruby #{RSPEC_ROOT}/examples/binding_pry_mixed_example.rb",
         width: 130, height: 30
       )
-      test.start
-      test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      test.assert_screen
+      begin
+        test.start
+        test.assert_screen
 
-      test.send_keys('exit', :Enter)
-      test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+        test.send_keys('exit', :Enter)
+        test.assert_screen
+
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -88,16 +100,19 @@ RSpec.describe 'Byebug compatibility', integration: true do
         'compatibility_pty_not_found.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/pty_not_found.rb"
       )
-      test.start
-      test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      test.assert_screen
+      begin
+        test.start
+        test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -108,16 +123,19 @@ RSpec.describe 'Byebug compatibility', integration: true do
         'compatibility_readline_patched.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/readline_patched.rb"
       )
-      test.start
-      test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      test.assert_screen
+      begin
+        test.start
+        test.assert_screen
 
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 end

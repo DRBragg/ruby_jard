@@ -10,20 +10,23 @@ RSpec.describe 'Test skip' do
         'nested_loop.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/skip_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.send_keys('continue', :Enter)
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('skip', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('skip 2', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.send_keys('continue', :Enter)
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('skip', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('skip 2', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -34,20 +37,23 @@ RSpec.describe 'Test skip' do
         'nested_method_call.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/skip_2_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('skip', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('skip 2', :Enter)
-      test.assert_screen
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('skip', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('skip 2', :Enter)
+        test.assert_screen
+      ensure
+        test.stop
+      end
     end
   end
 
@@ -58,16 +64,19 @@ RSpec.describe 'Test skip' do
         'skip_all.expected',
         "bundle exec ruby #{RSPEC_ROOT}/examples/skip_2_example.rb"
       )
-      test.start
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('continue', :Enter)
-      test.assert_screen
-      test.send_keys('skip --all', :Enter)
-      test.assert_screen_not_include('skip_2_example')
-    ensure
-      test.stop
+
+      begin
+        test.start
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('continue', :Enter)
+        test.assert_screen
+        test.send_keys('skip --all', :Enter)
+        test.assert_screen_not_include('skip_2_example')
+      ensure
+        test.stop
+      end
     end
   end
 end
